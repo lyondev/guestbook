@@ -16,7 +16,7 @@
                 <li><a href="/about">About</a></li>
             </ul>
             <ul class="nav navbar-nav navbar-right">
-                {{> loginButtons}} <!-- here -->
+                {{> loginButtons}}
             </ul>
         </div>
     </div>
@@ -34,21 +34,13 @@
 <template name="guestBook">
     {{#if currentUser}}
         <form>
-            <!--<div class="form-group">-->
-            <!--<label for="guestName">Name</label>-->
-            <!--<input type="text" name="guestName"/>-->
-            <!--</div>-->
-
             <fieldset class="form-group">
                 <label for="guestBookMessage">Type message here:</label><br />
                 <textarea name="guestBookMessage" cols="30" rows="3" required></textarea>
             </fieldset>
-
             <button type="submit" class="btn btn-lg btn-primary">Post Message</button>
         </form>
-
         <br>
-
         {{#each messages}}
             <p><a href="{{pathFor route='message.show'}}"> {{name}}: {{message}}</a></p>
         {{/each}}
